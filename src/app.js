@@ -47,7 +47,7 @@ app.put("/repositories/:id", (request, response) => {
       title,
       url,
       techs,
-      likes
+      
     }
 
     repositories[repositoryIndex] = repository
