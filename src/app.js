@@ -69,7 +69,7 @@ app.delete("/repositories/:id", (request, response) => {
 
   repositories.splice(repositoryIndex, 1)
 
-  console.log('deletado')
+
   return response.status(204).send()
 
 });
@@ -79,10 +79,16 @@ app.post("/repositories/:id/like", (request, response) => {
   const { id } = request.params
 
   const repository = repositories.find(repository => repository.id ===id)
+  
+
+  if(!repository){
+
+    return response.status(400).send();
+
+  }
+
   repository.likes += 1;
-
-  console.log('likrf')
-
+ 
   return response.json(repository)
 
 });
